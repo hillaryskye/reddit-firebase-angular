@@ -164,19 +164,13 @@ var app = angular.module("redditApp", ['angularMoment', 'ngAnimate']);
          console.log('favorite after', post.favorite);
        }
      }
-//      app.directive("keepFocus", ['$timeout', function ($timeout) {
-//     return {
-//         restrict: 'A',
-//         require: 'ngModel',
-//         link: function ($scope, $element, attrs, ngModel) {
-//
-//             ngModel.$parsers.unshift(function (value) {
-//                 $timeout(function () {
-//                     $element[0].focus();
-//                 });
-//                 return value;
-//             });
-//         }
-//     };
-// }])
    })
+
+   App.controller('oneCtrl', function($scope) {
+
+     this.dropCallback = function(event, ui, title, $index) {
+    if ($scope.list1.map(function(item) { return item.title; }).join('') === 'GOLLUM') {
+      $scope.list1.forEach(function(value, key) { $scope.list1[key].drag = false; });
+    }
+  };
+});

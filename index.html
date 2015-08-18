@@ -7,7 +7,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-animate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.2/angular-moment.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!--   <script src="components/angular-dragdrop/src/angular-dragdrop.min.js"></script>
+ -->  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-cloak>
@@ -22,7 +23,9 @@
           <option class="green" class="option" value="-votes">Sort By Votes</option>
           <option class="option" value="date">Sort By Date</option>
           <option class="option" value="name">Sort By Title</option>
-          <option value="post.favorite">Sort By Star<i class="fa fa-star-o"></i></option>
+          <option value="-favorite">Sort By Star<i class="fa fa-star-o"></i></option>
+          <option value="author">Sort By Author</option>
+          <option value="-commentsArr.length">Sort By Comments</option>
         </select>
 
     </nav>
@@ -39,7 +42,8 @@
        </button>
     </form>
     <article>
-        <div ng-repeat="post in posts | filter:search | orderBy:sort" class="post">
+        <div ng-repeat="post in posts | filter:search | orderBy:sort" class="post" data-drop="true" ng-model='list1' jqyoui-droppable="{index: {{$index}}, onDrop:'loki.dropCallback(item.title, $index)'}">
+                <div class="thumbnail" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}">
          <img src="{{post.url}}" alt="" width="200" height="200">
            <p class="author">By: {{post.author}}</p>
          <ul>
