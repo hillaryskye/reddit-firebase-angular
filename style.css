@@ -5,7 +5,7 @@
   background: #F8F6F8;
   border: 1px solid grey;
   padding: 10px;
-  margin: 20px;
+  margin: 10px 20px;
   float: left;
   color: #605F60;
   width: 93%;
@@ -16,11 +16,11 @@ select {
     width: 130px;
     height: 80px;
     display: block;
-    margin-left: 545px;
-    margin-top: -35px;
+    margin-left: 608px;
+    margin-top: -45px;
     color: #898889;
     -webkit-appearance: none;
-    padding-left: 5px;
+    padding-left: 27px;
 }
 article {
   min-width: 95%;
@@ -33,31 +33,71 @@ nav {
   color: #898889;
   background: #F8F6F8;
   width: 100%;
+  height: 66px;
+  border-bottom: 2px solid #ce3610;
+  border-left: 1px solid #ce3610;
+  border-right: 1px solid #ce3610;
+  margin-bottom: 20px;
 }
-li {
+}
+nav li {
   list-style-type: none;
   padding: 20px;
   display: inline-block;
 }
+ul {
+  margin-top: -1px;
+ }
+li {
+  padding-left: 10px;
+  list-style-type: none;
+  display: inline-block;
+}
 span {
-  padding-right: 20px;
+  padding-right: 5px;
 }
 .comment-form {
   padding-left: 50px;
   line-height: 1.5em;
   float: left;
+  visibility: visible;
 }
 .button {
-  background-color: #ddb640;
+  color: white;
+  background-color: #ce3610;
   padding: 5px 10px;
   display: block;
   border-radius: 5px;
   margin: 10px;
 }
 .button2 {
-  margin-left: -20px;
-  color: #605F60;
+  border-radius: 5px;
+  background-color: #ce3610;
+/*   margin-left: -10px;
+ */
+  /* color: #605F60; */
+  color: white;
   padding: 0px 5px;
+}
+input[novalidate] input {
+  border-left-width: 8px;
+  border-style: solid;
+  border-color: #3498db;
+}
+input[required].ng-pristine {
+  border-style: solid;
+  border-left-width: 8px;
+  border-color: yellow;
+}
+input.ng-invalid.ng-dirty {
+  border-style: solid;
+  border-left-width: 8px;
+  border-color: #2ecc71;
+}
+input.ng-valid.ng-dirty {
+  border-style: solid;
+  border-left-width: 8px;
+  border-color: #2ecc71;
 }
 label {
   display: block;
@@ -71,7 +111,8 @@ p, h1, h2, h3 {
   font-family: 'Helvetica Neue', Helvetica, Ariel;
 }
 h3 {
-  margin-top: 5px;}
+  margin-top: 5px;
+}
 p, span h3 {
   padding-left: 5px;
   padding-right: 10px;
@@ -91,17 +132,23 @@ p, span h3 {
 /*   background: #F8F6F8;
  */  padding: 5px;
 }
+.fa-pencil {
+  color: white;
+}
 .comment {
   display: block;
   margin: 10px;
-  margin-left: 200px;
+  margin-left: 160px;
 }
 /* i {
   padding-top: -10px;
 }
- */.black {
-  font-weight: bold;
-  line-height: .25em;
+ */
+ .black {
+   font-weight: normal;
+    font-family: 'Helvetica Neue', Helvetica, Ariel;
+/*   font-weight: bold;
+ */  line-height: .25em;
   color: #605F60;
   padding-left: 5px;
 }
@@ -114,4 +161,52 @@ p, span h3 {
   font-weight: bold;
   padding-left: 5px;
   color: red;
+}
+.gold {
+  font-size: 20px;
+  font-weight: bold;
+  color: #efbd32;
+  border-radius: 50%;
+}
+.commentButton {
+  color: black;
+  cursor: pointer;
+}
+.showComment {
+  width: 39%;
+  margin: 0 auto;
+/*   margin-left: 400px;
+margin-top: -40px;
+ */}
+ .showAddComment {
+   color: #3498db;
+   margin-top: -40px;
+ }
+.fadein {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+}
+.fadeout {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+}
+
+.fadein.ng-hide-remove,
+.fadeout.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+  display: block !important;
+}
+
+.fadeout.ng-hide-add,
+.fadein.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+  display: block !important;
+}
+.comment-show {
+  margin-top: -10px;
+  display: block;
 }
