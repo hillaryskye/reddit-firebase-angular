@@ -62,6 +62,9 @@ span {
   float: left;
   visibility: visible;
 }
+button:hover {
+  color: yellow;
+}
 .button {
   color: white;
   background-color: #ce3610;
@@ -78,6 +81,13 @@ span {
   /* color: #605F60; */
   color: white;
   padding: 0px 5px;
+}
+.delete {
+  float: right;
+}
+.delete:after {
+  clear: both;
+  visibility: hidden;
 }
 input[novalidate] input {
   border-left-width: 8px;
@@ -132,7 +142,7 @@ p, span h3 {
 /*   background: #F8F6F8;
  */  padding: 5px;
 }
-.fa-pencil {
+.fa-pencil, .fa-trash-o {
   color: white;
 }
 .comment {

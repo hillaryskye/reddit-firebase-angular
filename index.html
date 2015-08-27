@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html ng-app="redditApp">
+<html ng-app="redditFirebaseApp">
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.2/angular-moment.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <!--   <script src="components/angular-dragdrop/src/angular-dragdrop.min.js"></script>
- -->  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+ -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-cloak>
-  <div ng-controller="reddit">
+  <main>
+
+  <div ng-controller="redditFirebaseCtrl">
     <nav>
       <li><h3 ng-click="addForm()" type="submit"><span>Reddit Clone</span><i class="fa fa-plus"></i>Submit Post</h3></li>
       <li><label for="search">Search
@@ -31,13 +39,13 @@
     </nav>
     <form class="comment-form fadein fadeout" ng-show="add === true" ng-hide="add === false" name="postForm">
       <label for="name">Name</label>
-        <input type="text" name="name" id="name" ng-model="name" placeholder="Enter Name" required>
+        <input type="text" name="name" id="name" ng-model="newPost.name" placeholder="Enter Name" required>
       <label for="url">Url</label>
-        <input type="text" name="url" id="url" ng-model="url" placeholder="Enter url" required>
+        <input type="text" name="url" id="url" ng-model="newPost.url" placeholder="Enter url" required>
       <label for="desc">Desc</label>
-        <input type="text" name="desc" id="desc" ng-model="desc" placeholder="Enter Description" required>
+        <input type="text" name="desc" id="desc" ng-model="newPost.desc" placeholder="Enter Description" required>
       <label for="author">Author</label>
-        <input type="text" name="author" id="author" ng-model="author" placeholder="Enter Author" required>
+        <input type="text" name="author" id="author" ng-model="newPost.author" placeholder="Enter Author" required>
        <button class="button" type="submit" ng-click="addPost(post)">Submit
        </button>
     </form>
@@ -72,9 +80,9 @@
           <li><button class="button2" ng-click="addCommentsForm()" ng-mouseover="showComments(post)" type="submit"><i class="fa fa-pencil"></i>Add Comment</button></li>
 
             <form class="comment fadein fadeout" ng-show="addComment === true" ng-hide="addComment === false">
-              <input type="text" ng-model="post.commentTxt" placeholder="What's your comment?">
+              <input type="text" ng-model="commentTxt" placeholder="What's your comment?">
 <!--               <input type="text" ng-model="post.commentAuth" placeholder="Enter your name!">
- -->              <button class="button2" ng-click="addTxtComment(post)" type="submit">Submit</button>
+-->              <button class="button2" ng-click="addTxtComment(post, commentTxt)" type="submit">Submit</button>
             </form>
            </ul>
            <ul class="showComment">
@@ -82,10 +90,13 @@
                 <p>{{comment}}</p>
               </li>
            </ul>
-
         </div>
+          <button class="button2 delete" ng-click="delPost(post)" type="submit"><i class="fa fa-trash-o"></i>Delete Post</button>
     </article>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src='app.js'></script>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+
 </body>
 </html>
