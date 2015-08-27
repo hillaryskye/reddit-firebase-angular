@@ -120,20 +120,19 @@ app.controller("redditFirebaseCtrl", function($scope, $firebaseArray) {
   $scope.addTxtComment = function(post, commentTxt) {
     if (post.commentsArr) {
       console.log('noComments')
-      post.commentsArr.push(commentTxt)
       }
     else {
       console.log('yesComments')
       post.commentsArr = []
-      post.commentsArr.push(commentTxt)
       }
+      post.commentsArr.push(post.commentTxt)
+      post.commentTxt = ""
       $scope.posts.$save(post)
-    console.log('comment', commentTxt)
+    console.log('comment', post.commentTxt)
     console.log('post', post)
     console.log('postafter', post)
 
-     $scope.commentTxt = ''
-    console.log('blank txt', $scope.commentTxt);
+    console.log('blank txt', commentTxt);
   }
 
   $scope.addFavorite = function(post) {

@@ -80,7 +80,7 @@
           <li><button class="button2" ng-click="addCommentsForm()" ng-mouseover="showComments(post)" type="submit"><i class="fa fa-pencil"></i>Add Comment</button></li>
 
             <form class="comment fadein fadeout" ng-show="addComment === true" ng-hide="addComment === false">
-              <input type="text" ng-model="commentTxt" placeholder="What's your comment?">
+              <input type="text" ng-model="post.commentTxt" placeholder="What's your comment?">
 <!--               <input type="text" ng-model="post.commentAuth" placeholder="Enter your name!">
 -->              <button class="button2" ng-click="addTxtComment(post, commentTxt)" type="submit">Submit</button>
             </form>
