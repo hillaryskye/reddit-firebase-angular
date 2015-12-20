@@ -10,6 +10,9 @@
   color: #605F60;
   width: 93%;
 }
+.hover:hover {
+  color: #ce3610;
+}
 select {
   background: white;
     border: 1px solid grey;
